@@ -31,6 +31,15 @@ int main(int argc, const char * argv[]) {
               [mathClass multiply:first by:second],
               (long)[mathClass remainderOf:(NSInteger)first
                                  dividedBy:(NSInteger)second]);
+        
+        CGFloat third = 0;
+        printf("First number: ");
+        scanf("%lf", &first);
+        printf("Second number: ");
+        scanf("%lf", &second);
+        printf("Second number: ");
+        scanf("%lf", &third);
+        NSLog(@"Average: %f", [mathClass averageOf:first and:second and:third]);
     }
     return 0;
 }

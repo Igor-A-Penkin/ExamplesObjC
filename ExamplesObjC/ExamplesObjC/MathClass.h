@@ -16,6 +16,7 @@
 - (CGFloat)divide:(CGFloat)a by:(CGFloat)b;
 - (CGFloat)multiply:(CGFloat)a by:(CGFloat)b;
 - (NSInteger)remainderOf:(NSInteger)a dividedBy:(NSInteger)b;
+- (CGFloat)averageOf:(CGFloat)a and:(CGFloat)b and:(CGFloat)c;
 @end
 
 #endif /* MathClass_h */

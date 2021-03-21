@@ -6,16 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface MathClass: NSObject
-- (CGFloat)maxOf:(CGFloat)a and:(CGFloat)b;
-- (CGFloat)square:(CGFloat)a;
-- (CGFloat)sumOf:(CGFloat)a and:(CGFloat)b;
-- (CGFloat)subtructFrom:(CGFloat)a value:(CGFloat)b;
-- (CGFloat)divide:(CGFloat)a by:(CGFloat)b;
-- (CGFloat)multiply:(CGFloat)a by:(CGFloat)b;
-- (NSInteger)remainderOf:(NSInteger)a dividedBy:(NSInteger)b;
-@end
+#import "MathClass.h"
 
 @implementation MathClass
 
@@ -58,5 +49,9 @@
     return a%b;
 }
 
+- (CGFloat)averageOf:(CGFloat)a and:(CGFloat)b and:(CGFloat)c
+{
+    return (a+b+c)/3;
+}
 
 @end
