@@ -8,9 +8,11 @@
 #import "ViewController.h"
 #import <UIKit/UIKit.h>
 #import "ViewFitter.h"
+#import "CalculatorState.h"
+#import "MathClass.h"
 
 @interface ViewController ()
-
+// UI
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitcher;
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
@@ -30,23 +32,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *sevenButton;
 @property (weak, nonatomic) IBOutlet UIButton *eightButton;
 @property (weak, nonatomic) IBOutlet UIButton *nineButton;
-
+// Calculator properties
 @property (nonatomic) CGFloat bufferValue;
 @property (nonatomic) CGFloat inputValue;
 @property (nonatomic) NSString *outputValue;
 @property (nonatomic) CGFloat multiplicator;
+@property (nonatomic) enum CalculatorState calcState;
+@property (nonatomic) MathClass *mathmatics;
+// Alphabet properties
 
 - (void)setupForAlphabet:(BOOL)hidden;
 
 @end
 
 @implementation ViewController
-/*
- 
-    TO DO...
-    ENUM holding calculation state when user turn on math action
- 
- */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,12 +54,15 @@
     _bufferValue = 0;
     _outputValue = @"";
     _multiplicator = 10.0;
+    _calcState = eNone;
+    _mathmatics = [MathClass new];
 }
 
 - (void)setupForAlphabet:(BOOL)hidden {
     [self.modeSwitcher setHidden:NO];
     [self.inputField setHidden:NO];
     [self.inputField setUserInteractionEnabled:hidden];
+    [self.inputField setText:@""];
     [self.checkButton setHidden:!hidden];
     
     [self.clearButton setHidden:hidden];
@@ -88,8 +90,8 @@
             [self setupForAlphabet:NO];
             break;
         case 1:
-            [self clearButtonPressed:_clearButton];
             [self setupForAlphabet:YES];
+            [self clearButtonPressed:_clearButton];
             break;
         default:
             NSLog(@"WARNING: It would never have happened.");
@@ -101,66 +103,133 @@
 - (IBAction)checkButtonPressed:(id)sender {
 }
 
+
 // MARK: - Calculator strategy
+
 - (IBAction)equalButtonPressed:(id)sender {
-    // TO DO
-    // switch to manage with cases of calculation + - / *
-}
-- (IBAction)clearButtonPressed:(id)sender {
-    self.bufferValue = 0;
-    self.inputValue = 0;
-    self.outputValue = @"";
-    [self.inputField setText:@""];
-}
-- (IBAction)plusButtonPressed:(id)sender {
-    _bufferValue = _inputValue;
+    switch (_calcState) {
+        case ePlus:
+            _bufferValue = [self.mathmatics sumOf:_bufferValue andValue:_inputValue];
+            break;
+        case eMinus:
+            _bufferValue =  [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];
+            break;
+        case eMultiply:
+            _bufferValue = [self.mathmatics multiply:_bufferValue by:_inputValue];
+            break;
+        case eDivide:
+            _bufferValue = [self.mathmatics divide:_bufferValue by:_inputValue];
+            break;
+        default:
+            break;
+    }
+    [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
     _inputValue = 0;
+    _calcState = eNone;
+}
+
+- (IBAction)clearButtonPressed:(id)sender {
+    _bufferValue = 0;
+    _inputValue = 0;
+    _outputValue = @"";
+    _calcState = eNone;
     [self.inputField setText:@""];
-    // set calculator on oparator state +
 }
+
+- (IBAction)plusButtonPressed:(id)sender {
+    _bufferValue = [self.mathmatics sumOf:_bufferValue andValue:_inputValue];//_bufferValue + _inputValue;
+    _inputValue = 0;
+    if (_calcState == eNone) {
+        [self.inputField setText:@""];
+    } else {
+        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+    }
+    _calcState = ePlus;
+}
+
 - (IBAction)minusButtonPressed:(id)sender {
+    _bufferValue = [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];//_bufferValue - _inputValue;
+    _inputValue = 0;
+    if (_calcState == eNone) {
+        [self.inputField setText:@""];
+    } else {
+        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+    }
+    _calcState = eMinus;
 }
+
 - (IBAction)multiplyButtonPressed:(id)sender {
+    // TO DO check cases when clicking firstly on the "=" button and secondly on the "*"
+    _bufferValue = [self.mathmatics multiply:_bufferValue by:_inputValue];
+    if (_calcState == eNone) {
+        _bufferValue = _inputValue;
+        [self.inputField setText:@""];
+    } else {
+        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+    }
+    _inputValue = 0;
+    _calcState = eMultiply;
 }
+
 - (IBAction)divideButtonPressed:(id)sender {
+    // TO DO check cases when clicking firstly on the "=" button and secondly on the "/"
+    _bufferValue = [self.mathmatics divide:_bufferValue by:_inputValue];//_bufferValue / _inputValue;
+    if (_calcState == eNone) {
+        _bufferValue = _inputValue;
+        [self.inputField setText:@""];
+    } else {
+        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+    }
+    _inputValue = 0;
+    _calcState = eDivide;
 }
+
 
 - (IBAction)zeroPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 0;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)onePressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 1;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)twoPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 2;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)threePressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 3;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)fourPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 4;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)fivePressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 5;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)sixPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 6;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)sevenPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 7;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)eightPressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 8;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];
 }
+
 - (IBAction)ninePressed:(id)sender {
     self.inputValue = self.inputValue * _multiplicator + 9;
     [self.inputField setText:[NSString stringWithFormat:@"%f", _inputValue]];

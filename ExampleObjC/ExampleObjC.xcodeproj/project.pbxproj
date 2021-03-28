@@ -14,7 +14,8 @@
 		3A17064D260D11AC00A02CC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064C260D11AC00A02CC6 /* Assets.xcassets */; };
 		3A170650260D11AC00A02CC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064E260D11AC00A02CC6 /* LaunchScreen.storyboard */; };
 		3A170653260D11AC00A02CC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A170652260D11AC00A02CC6 /* main.m */; };
-		3A17065F260D1BA800A02CC6 /* ViewFitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A17065E260D1BA800A02CC6 /* ViewFitter.m */; };
+		3AB766AE2610BEF300C32BA8 /* ViewFitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766AD2610BEF300C32BA8 /* ViewFitter.m */; };
+		3AB766C52610CB5200C32BA8 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766C42610CB5200C32BA8 /* MathClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,11 @@
 		3A17064F260D11AC00A02CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A170651260D11AC00A02CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A170652260D11AC00A02CC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3A17065E260D1BA800A02CC6 /* ViewFitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewFitter.m; sourceTree = "<group>"; };
 		3A170661260D1BB700A02CC6 /* ViewFitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewFitter.h; sourceTree = "<group>"; };
+		3AB766A62610B1EB00C32BA8 /* CalculatorState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorState.h; sourceTree = "<group>"; };
+		3AB766AD2610BEF300C32BA8 /* ViewFitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFitter.m; sourceTree = "<group>"; };
+		3AB766C42610CB5200C32BA8 /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
+		3AB766C72610CB5B00C32BA8 /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,7 @@
 			children = (
 				3A170649260D11A800A02CC6 /* Main.storyboard */,
 				3A17064E260D11AC00A02CC6 /* LaunchScreen.storyboard */,
-				3A17065E260D1BA800A02CC6 /* ViewFitter.m */,
+				3AB766AD2610BEF300C32BA8 /* ViewFitter.m */,
 				3A170661260D1BB700A02CC6 /* ViewFitter.h */,
 			);
 			path = Views;
@@ -109,6 +113,9 @@
 		3A170668260D3CBB00A02CC6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3AB766A62610B1EB00C32BA8 /* CalculatorState.h */,
+				3AB766C42610CB5200C32BA8 /* MathClass.m */,
+				3AB766C72610CB5B00C32BA8 /* MathClass.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,11 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB766C52610CB5200C32BA8 /* MathClass.m in Sources */,
 				3A170648260D11A800A02CC6 /* ViewController.m in Sources */,
-				3A17065F260D1BA800A02CC6 /* ViewFitter.m in Sources */,
 				3A170642260D11A800A02CC6 /* AppDelegate.m in Sources */,
 				3A170653260D11AC00A02CC6 /* main.m in Sources */,
 				3A170645260D11A800A02CC6 /* SceneDelegate.m in Sources */,
+				3AB766AE2610BEF300C32BA8 /* ViewFitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
