@@ -16,6 +16,7 @@
 		3A170653260D11AC00A02CC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A170652260D11AC00A02CC6 /* main.m */; };
 		3AB766AE2610BEF300C32BA8 /* ViewFitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766AD2610BEF300C32BA8 /* ViewFitter.m */; };
 		3AB766C52610CB5200C32BA8 /* MathClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766C42610CB5200C32BA8 /* MathClass.m */; };
+		8B80E99C2612189000CCD7B7 /* Alphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B80E99B2612189000CCD7B7 /* Alphabet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		3AB766AD2610BEF300C32BA8 /* ViewFitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFitter.m; sourceTree = "<group>"; };
 		3AB766C42610CB5200C32BA8 /* MathClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathClass.m; sourceTree = "<group>"; };
 		3AB766C72610CB5B00C32BA8 /* MathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathClass.h; sourceTree = "<group>"; };
+		8B80E99B2612189000CCD7B7 /* Alphabet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alphabet.m; sourceTree = "<group>"; };
+		8B80E99E261218A100CCD7B7 /* Alphabet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alphabet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				3AB766A62610B1EB00C32BA8 /* CalculatorState.h */,
 				3AB766C42610CB5200C32BA8 /* MathClass.m */,
 				3AB766C72610CB5B00C32BA8 /* MathClass.h */,
+				8B80E99B2612189000CCD7B7 /* Alphabet.m */,
+				8B80E99E261218A100CCD7B7 /* Alphabet.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB766C52610CB5200C32BA8 /* MathClass.m in Sources */,
+				8B80E99C2612189000CCD7B7 /* Alphabet.m in Sources */,
 				3A170648260D11A800A02CC6 /* ViewController.m in Sources */,
 				3A170642260D11A800A02CC6 /* AppDelegate.m in Sources */,
 				3A170653260D11AC00A02CC6 /* main.m in Sources */,

@@ -146,8 +146,13 @@
 }
 
 - (IBAction)minusButtonPressed:(id)sender {
-    _bufferValue = [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];
-    _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+    if (_outputValue.length<1) {
+        _bufferValue = _inputValue;
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+    } else {
+        _bufferValue = [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+    }
     _inputValue = 0;
     [self.inputField setText:_outputValue];
     _calcState = eMinus;
