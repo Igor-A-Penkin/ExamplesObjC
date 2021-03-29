@@ -123,7 +123,8 @@
         default:
             break;
     }
-    [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+    _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+    [self.inputField setText:_outputValue];
     _inputValue = 0;
     _calcState = eNone;
 }
@@ -137,48 +138,48 @@
 }
 
 - (IBAction)plusButtonPressed:(id)sender {
-    _bufferValue = [self.mathmatics sumOf:_bufferValue andValue:_inputValue];//_bufferValue + _inputValue;
+    _bufferValue = [self.mathmatics sumOf:_bufferValue andValue:_inputValue];
+    _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
     _inputValue = 0;
-    if (_calcState == eNone) {
-        [self.inputField setText:@""];
-    } else {
-        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
-    }
+    [self.inputField setText:_outputValue];
     _calcState = ePlus;
 }
 
 - (IBAction)minusButtonPressed:(id)sender {
-    _bufferValue = [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];//_bufferValue - _inputValue;
+    _bufferValue = [self.mathmatics subtructFrom:_bufferValue andValue:_inputValue];
+    _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
     _inputValue = 0;
-    if (_calcState == eNone) {
-        [self.inputField setText:@""];
-    } else {
-        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
-    }
+    [self.inputField setText:_outputValue];
     _calcState = eMinus;
 }
 
 - (IBAction)multiplyButtonPressed:(id)sender {
-    // TO DO check cases when clicking firstly on the "=" button and secondly on the "*"
-    _bufferValue = [self.mathmatics multiply:_bufferValue by:_inputValue];
-    if (_calcState == eNone) {
+    if ((_calcState == eNone) && (_outputValue.length<1)) {
         _bufferValue = _inputValue;
-        [self.inputField setText:@""];
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+        [self.inputField setText:_outputValue];
+    } else if ((_calcState == eNone) && (_outputValue.length>=1)) {
+        [self.inputField setText:_outputValue];
     } else {
-        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+        _bufferValue = [self.mathmatics multiply:_bufferValue by:_inputValue];
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+        [self.inputField setText:_outputValue];
     }
     _inputValue = 0;
     _calcState = eMultiply;
 }
 
 - (IBAction)divideButtonPressed:(id)sender {
-    // TO DO check cases when clicking firstly on the "=" button and secondly on the "/"
-    _bufferValue = [self.mathmatics divide:_bufferValue by:_inputValue];//_bufferValue / _inputValue;
-    if (_calcState == eNone) {
+    if ((_calcState == eNone) && (_outputValue.length<1)) {
         _bufferValue = _inputValue;
-        [self.inputField setText:@""];
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+        [self.inputField setText:_outputValue];
+    } else if ((_calcState == eNone) && (_outputValue.length>=1)) {
+        [self.inputField setText:_outputValue];
     } else {
-        [self.inputField setText:[NSString stringWithFormat:@"%f", _bufferValue]];
+        _bufferValue = [self.mathmatics divide:_bufferValue by:_inputValue];
+        _outputValue = [NSString stringWithFormat:@"%f", _bufferValue];
+        [self.inputField setText:_outputValue];
     }
     _inputValue = 0;
     _calcState = eDivide;
