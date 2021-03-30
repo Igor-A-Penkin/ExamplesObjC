@@ -20,6 +20,15 @@
     return self;
 }
 
+-(enum Language)check:(NSString *)letter {
+    if ([self check:letter with:eRussian]) {
+        return eRussian;
+    } else if ([self check:letter with:eEnglish]) {
+        return eEnglish;
+    }
+    return eUnknown;
+}
+
 -(BOOL)check:(NSString *)letter with:(enum Language)language {
     switch (language) {
         case eEnglish:
@@ -34,7 +43,7 @@
     }
 }
 
--(BOOL)checkWithEnglish:(NSString *)letter {
+-(BOOL)checkWithRussian:(NSString *)letter {
     for (int i = 0; i<=_russian.count; i++) {
         if ([_russian containsObject:letter]) {
             return YES;
@@ -43,7 +52,7 @@
     return NO;
 }
 
--(BOOL)checkWithRussian:(NSString *)letter {
+-(BOOL)checkWithEnglish:(NSString *)letter {
     for (int i = 0; i<=_english.count; i++) {
         if ([_english containsObject:letter]) {
             return YES;

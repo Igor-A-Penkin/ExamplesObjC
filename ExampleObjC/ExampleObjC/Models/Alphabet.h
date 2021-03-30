@@ -12,12 +12,15 @@
 
 enum Language {
     eEnglish,
-    eRussian
+    eRussian,
+    eUnknown
 };
 
 @property (nonatomic, readonly) NSArray *russian;
 @property (nonatomic, readonly) NSArray *english;
+@property (nonatomic, readonly) enum Language languages;
 
+-(enum Language)check:(NSString *)letter;
 -(BOOL)check:(NSString *)letter with:(enum Language)language;
 
 @end

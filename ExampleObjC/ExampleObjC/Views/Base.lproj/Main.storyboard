@@ -172,10 +172,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xci-ii-dJ9">
-                                <rect key="frame" x="185" y="264" width="44" height="30"/>
+                                <rect key="frame" x="140" y="264" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Check"/>
+                                <state key="normal" title="Check for language"/>
                                 <connections>
                                     <action selector="checkButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g9M-7K-gu9"/>
                                 </connections>

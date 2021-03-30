@@ -10,6 +10,7 @@
 #import "ViewFitter.h"
 #import "CalculatorState.h"
 #import "MathClass.h"
+#import "Alphabet.h"
 
 @interface ViewController ()
 // UI
@@ -40,8 +41,7 @@
 @property (nonatomic) enum CalculatorState calcState;
 @property (nonatomic) MathClass *mathmatics;
 // Alphabet properties
-
-- (void)setupForAlphabet:(BOOL)hidden;
+@property (nonatomic) Alphabet *alphabet;
 
 @end
 
@@ -56,6 +56,8 @@
     _multiplicator = 10.0;
     _calcState = eNone;
     _mathmatics = [MathClass new];
+    _alphabet = [Alphabet new];
+    _inputField.delegate = self;
 }
 
 - (void)setupForAlphabet:(BOOL)hidden {
@@ -63,6 +65,7 @@
     [self.inputField setHidden:NO];
     [self.inputField setUserInteractionEnabled:hidden];
     [self.inputField setText:@""];
+    self.inputField.placeholder = hidden ? @"Type a letter" : @"0";
     [self.checkButton setHidden:!hidden];
     
     [self.clearButton setHidden:hidden];
@@ -101,6 +104,32 @@
 
 // MARK: - Alphabet strategy
 - (IBAction)checkButtonPressed:(id)sender {
+    if (_inputField.text.length > 1) {
+        _inputField.text = @"";
+        _inputField.placeholder = @"Type just one letter...";
+    } else {
+        enum Language lang = [self.alphabet check:_inputField.text];
+        [self displayLanguage:lang];
+    }
+}
+
+-(void)displayLanguage:(enum Language)language {
+    switch (language) {
+        case eRussian:
+            _inputField.text = @"";
+            _inputField.placeholder = @"Russian";
+            break;
+        case eEnglish:
+            _inputField.text = @"";
+            _inputField.placeholder = @"English";
+            break;
+        case eUnknown:
+            _inputField.text = @"";
+            _inputField.placeholder = @"Unknown language, try again...";
+            break;
+        default:
+            break;
+    }
 }
 
 
