@@ -8,7 +8,15 @@
 #ifndef CalculatorState_h
 #define CalculatorState_h
 
-enum CalculatorState {
+//enum CalculatorState {
+//    ePlus,
+//    eMinus,
+//    eMultiply,
+//    eDivide,
+//    eNone
+//};
+
+typedef NS_ENUM(NSInteger, CalculatorState) {
     ePlus,
     eMinus,
     eMultiply,

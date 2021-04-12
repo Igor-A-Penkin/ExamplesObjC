@@ -10,7 +10,7 @@
 
 @interface Alphabet : NSObject
 
-enum Language {
+typedef NS_ENUM(NSInteger, Language) {
     eEnglish,
     eRussian,
     eUnknown
@@ -20,8 +20,8 @@ enum Language {
 @property (nonatomic, readonly) NSArray *english;
 @property (nonatomic, readonly) enum Language languages;
 
--(enum Language)check:(NSString *)letter;
--(BOOL)check:(NSString *)letter with:(enum Language)language;
+-(Language)check:(NSString *)letter;
+-(BOOL)check:(NSString *)letter with:(Language)language;
 
 @end
 

@@ -20,7 +20,7 @@
 @property (nonatomic) CGFloat inputValue;
 @property (nonatomic) NSString *outputValue;
 @property (nonatomic) CGFloat multiplicator;
-@property (nonatomic) enum CalculatorState calcState;
+@property (nonatomic) CalculatorState calcState;
 @property (nonatomic) MathClass *mathmatics;
 // Alphabet properties
 @property (nonatomic) Alphabet *alphabet;

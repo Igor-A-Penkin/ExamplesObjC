@@ -20,7 +20,7 @@
     return self;
 }
 
--(enum Language)check:(NSString *)letter {
+-(Language)check:(NSString *)letter {
     if ([self check:letter with:eRussian]) {
         return eRussian;
     } else if ([self check:letter with:eEnglish]) {
@@ -29,7 +29,7 @@
     return eUnknown;
 }
 
--(BOOL)check:(NSString *)letter with:(enum Language)language {
+-(BOOL)check:(NSString *)letter with:(Language)language {
     switch (language) {
         case eEnglish:
             return [self checkWithEnglish:letter];
