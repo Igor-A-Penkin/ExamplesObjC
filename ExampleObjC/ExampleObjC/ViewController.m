@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "Human/Human.h"
 
 @interface ViewController ()
 
@@ -22,9 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _strings = [NSMutableArray new];
-    
+    [self makeStructureObjects];
 }
 
+// MARK: - task 1
 - (IBAction)saveButtonPressed:(id)sender {
     [_strings addObject:_textInput.text];
     _textInput.text = @"";
@@ -62,6 +64,19 @@
         NSLog(@"- %@", _strings[count]);
         count+=1;
     } while (count < _strings.count);
+}
+
+// MARK: - task 3
+- (void)makeStructureObjects {
+    Human man;
+    man.name = @"Oleg";
+    man.age = 23;
+    man.gander = Male;
+    
+    Human woman = { @"Olga", 21, Female };
+    
+    NSLog(@"First object:\n name: %@,\n age: %ld,\n gander: %ld;", man.name, (long)man.age, (long)man.gander);
+    NSLog(@"Second object:\n name: %@,\n age: %ld,\n gander: %ld;", woman.name, (long)woman.age, (long)woman.gander);
 }
 
 @end

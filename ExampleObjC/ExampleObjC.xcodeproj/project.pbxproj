@@ -29,6 +29,7 @@
 		3AB766E52624D1BB00C32BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AB766E72624D1BB00C32BA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AB766E82624D1BB00C32BA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8BAF6BBF2625B66E0015AE10 /* Human.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		3AB766D52624D1B000C32BA8 /* ExampleObjC */ = {
 			isa = PBXGroup;
 			children = (
+				8BAF6BB72625AC500015AE10 /* Human */,
 				3AB766D62624D1B000C32BA8 /* AppDelegate.h */,
 				3AB766D72624D1B000C32BA8 /* AppDelegate.m */,
 				3AB766D92624D1B000C32BA8 /* SceneDelegate.h */,
@@ -74,6 +76,14 @@
 				3AB766E82624D1BB00C32BA8 /* main.m */,
 			);
 			path = ExampleObjC;
+			sourceTree = "<group>";
+		};
+		8BAF6BB72625AC500015AE10 /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				8BAF6BBF2625B66E0015AE10 /* Human.h */,
+			);
+			path = Human;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
