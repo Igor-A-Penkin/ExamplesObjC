@@ -13,20 +13,17 @@
 {
     self = [super init];
     if (self) {
-        [name retain];
-        [name release];
         self.name = name;
-        self.birds = [NSMutableArray new];
+        [self.name autorelease];
+        self.birds = [NSMutableArray array];
+        [self.birds autorelease];
     }
     NSLog(@"%@ was initiated.", self.name);
     return self;
 }
 
 - (void)addBirdsObject:(Bird *)object {
-    [object retain];
-    [object release];
     [self.birds addObject:object];
-    [[self.birds lastObject] release];
     NSLog(@"%@ was added. Totally: %lu birds.", object.type, (unsigned long)self.birds.count);
 }
 
@@ -37,12 +34,6 @@
 
 - (void)dealloc
 {
-    for (Bird *bird in self.birds) {
-        [bird release];
-    }
-    [self.name release];
-    [self.birds release];
-    
     NSLog(@"Flock %@ is to be deallocated.", self.name);
     [super dealloc];
 }

@@ -16,16 +16,14 @@
 {
     self = [super init];
     if (self) {
-        [type retain];
-        [areal retain];
-        [color retain];
-        [type release];
-        [areal release];
-        [color release];
         self.type = type;
         self.areal = areal;
         self.color = color;
         self.weight = weight;
+        
+        [type autorelease];
+        [areal autorelease];
+        [color autorelease];
     }
     NSLog(@"Bird %@ was initiated.", self.type);
     return self;
@@ -34,9 +32,6 @@
 - (void)dealloc
 {
     NSLog(@"Bird %@ was deallocated.", self.type);
-    [self.type release];
-    [self.areal release];
-    [self.color release];
     [super dealloc];
 }
 
