@@ -14,6 +14,8 @@
 		3A17064D260D11AC00A02CC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064C260D11AC00A02CC6 /* Assets.xcassets */; };
 		3A170650260D11AC00A02CC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064E260D11AC00A02CC6 /* LaunchScreen.storyboard */; };
 		3A170653260D11AC00A02CC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A170652260D11AC00A02CC6 /* main.m */; };
+		8BAF6BD0262843FF0015AE10 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF6BCF262843FF0015AE10 /* Bird.m */; };
+		8BAF6BD4262844080015AE10 /* Flock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF6BD3262844080015AE10 /* Flock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		3A17064F260D11AC00A02CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A170651260D11AC00A02CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A170652260D11AC00A02CC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8BAF6BCE262843FF0015AE10 /* Bird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		8BAF6BCF262843FF0015AE10 /* Bird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
+		8BAF6BD2262844080015AE10 /* Flock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flock.h; sourceTree = "<group>"; };
+		8BAF6BD3262844080015AE10 /* Flock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 		3A17063F260D11A700A02CC6 /* ExampleObjC */ = {
 			isa = PBXGroup;
 			children = (
+				8BAF6BCD26283F7B0015AE10 /* Flock */,
+				8BAF6BCC26283F480015AE10 /* Bird */,
 				3A170640260D11A700A02CC6 /* AppDelegate.h */,
 				3A170641260D11A800A02CC6 /* AppDelegate.m */,
 				3A170643260D11A800A02CC6 /* SceneDelegate.h */,
@@ -74,6 +82,24 @@
 				3A170652260D11AC00A02CC6 /* main.m */,
 			);
 			path = ExampleObjC;
+			sourceTree = "<group>";
+		};
+		8BAF6BCC26283F480015AE10 /* Bird */ = {
+			isa = PBXGroup;
+			children = (
+				8BAF6BCE262843FF0015AE10 /* Bird.h */,
+				8BAF6BCF262843FF0015AE10 /* Bird.m */,
+			);
+			path = Bird;
+			sourceTree = "<group>";
+		};
+		8BAF6BCD26283F7B0015AE10 /* Flock */ = {
+			isa = PBXGroup;
+			children = (
+				8BAF6BD2262844080015AE10 /* Flock.h */,
+				8BAF6BD3262844080015AE10 /* Flock.m */,
+			);
+			path = Flock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAF6BD0262843FF0015AE10 /* Bird.m in Sources */,
 				3A170648260D11A800A02CC6 /* ViewController.m in Sources */,
 				3A170642260D11A800A02CC6 /* AppDelegate.m in Sources */,
+				8BAF6BD4262844080015AE10 /* Flock.m in Sources */,
 				3A170653260D11AC00A02CC6 /* main.m in Sources */,
 				3A170645260D11A800A02CC6 /* SceneDelegate.m in Sources */,
 			);
@@ -183,7 +211,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -242,7 +270,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
