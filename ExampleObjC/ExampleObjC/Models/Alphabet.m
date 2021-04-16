@@ -14,8 +14,9 @@
 {
     self = [super init];
     if (self) {
-        _russian = [[NSArray alloc] initWithObjects:@"а", @"б", @"в", @"г", @"д", @"е", @"ё", @"ж", @"з", @"и", @"й", @"к", @"л", @"м", @"н", @"о", @"п", @"р", @"с", @"т", @"у", @"ф", @"х", @"ц", @"ч", @"ш", @"щ", @"ъ", @"ы", @"ь", @"э", @"ю", @"я", nil];
-        _english = [[NSArray alloc] initWithObjects:@"q", @"w", @"e", @"r", @"t", @"y", @"u", @"i", @"o", @"p", @"a", @"s", @"d", @"f", @"g", @"h", @"j", @"k", @"l", @"z", @"x", @"c", @"v", @"b", @"n", @"m", nil];
+        self.russian = [[NSArray alloc] initWithObjects:@"а", @"б", @"в", @"г", @"д", @"е", @"ё", @"ж", @"з", @"и", @"й", @"к", @"л", @"м", @"н", @"о", @"п", @"р", @"с", @"т", @"у", @"ф", @"х", @"ц", @"ч", @"ш", @"щ", @"ъ", @"ы", @"ь", @"э", @"ю", @"я", nil];
+        self.english = [[NSArray alloc] initWithObjects:@"q", @"w", @"e", @"r", @"t", @"y", @"u", @"i", @"o", @"p", @"a", @"s", @"d", @"f", @"g", @"h", @"j", @"k", @"l", @"z", @"x", @"c", @"v", @"b", @"n", @"m", nil];
+        NSLog(@"Alphabet was initiated.");
     }
     return self;
 }
@@ -59,6 +60,13 @@
         }
     }
     return NO;
+}
+
+- (void)dealloc {
+    [self.english release];
+    [self.russian release];
+    NSLog(@"Alphabet was deallocated.");
+    [super dealloc];
 }
 
 @end

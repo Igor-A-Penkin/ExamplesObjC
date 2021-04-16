@@ -13,14 +13,23 @@
 
 @implementation ViewFitter
 
--(void)fitSubviewsFor:(ViewController *)VC {
-    _VC = VC;
-    _edge = 16;
-    _offset = 5;
-    _row = 20;
-    _buttonsInRow = 4;
-    _buttonsWidth = (_VC.view.frame.size.width-_edge*2-_offset*(_buttonsInRow-1))/_buttonsInRow;
-    _buttonsFont = [UIFont fontWithName:@"Helvetica" size:48];
+-(instancetype)initWithVC:(ViewController *)VC {
+    self = [super init];
+    if (self) {
+        [VC retain];
+        self.VC = VC;
+        _edge = 16;
+        _offset = 5;
+        _row = 20;
+        _buttonsInRow = 4;
+        _buttonsWidth = (_VC.view.frame.size.width-_edge*2-_offset*(_buttonsInRow-1))/_buttonsInRow;
+        _buttonsFont = [UIFont fontWithName:@"Helvetica" size:48];
+    }
+    NSLog(@"ViewFitter was initiated with %@.", self.VC.description);
+    return self;
+}
+
+-(void)fitSubviewsFor {
     [self fitModeSwitcher];
     [self fitInputField];
     [self fitSevenButton];
@@ -266,6 +275,13 @@
     [_VC.divideButton setTintColor:UIColor.whiteColor];
     [_VC.divideButton.layer setCornerRadius:_edge];
     [_VC.divideButton.titleLabel setFont:_buttonsFont];
+}
+
+-(void)dealloc {
+    NSLog(@"ViewFitter was deallocated.");
+    [self.VC release];
+    [self.buttonsFont release];
+    [super dealloc];
 }
 
 @end

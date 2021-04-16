@@ -10,7 +10,7 @@
 
 @interface ViewFitter : NSObject
 
-@property (nonatomic) ViewController *VC;
+@property (nonatomic, weak) ViewController *VC;
 @property (nonatomic, readonly) CGFloat edge;
 @property (nonatomic, readonly) CGFloat offset;
 @property (nonatomic, readonly) CGFloat row;
@@ -18,7 +18,8 @@
 @property (nonatomic, readonly) CGFloat buttonsWidth;
 @property (nonatomic, readonly) UIFont *buttonsFont;
 
--(void)fitSubviewsFor:(ViewController *)VC;
+- (instancetype)initWithVC:(ViewController *)VC;
+- (void)fitSubviewsFor;
 
 @end
 

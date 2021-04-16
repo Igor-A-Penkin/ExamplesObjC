@@ -21,6 +21,15 @@
 
 @implementation MathClass
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"MathClass was initiated.");
+    }
+    return self;
+}
+
 - (CGFloat)maxOf:(CGFloat)a andValue:(CGFloat)b
 {
    if (a > b) {
@@ -67,6 +76,12 @@
 - (CGFloat)averageOf:(CGFloat)a andValue:(CGFloat)b andValue:(CGFloat)c
 {
     return (a+b+c)/3;
+}
+
+- (void)dealloc
+{
+    NSLog(@"MathClass was deallocated.");
+    [super dealloc];
 }
 
 @end

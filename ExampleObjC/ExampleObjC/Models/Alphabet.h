@@ -16,9 +16,9 @@ typedef NS_ENUM(NSInteger, Language) {
     eUnknown
 };
 
-@property (nonatomic, readonly) NSArray *russian;
-@property (nonatomic, readonly) NSArray *english;
-@property (nonatomic, readonly) enum Language languages;
+@property (nonatomic, strong) NSArray *russian;
+@property (nonatomic, strong) NSArray *english;
+@property (nonatomic, readonly) Language languages;
 
 -(Language)check:(NSString *)letter;
 -(BOOL)check:(NSString *)letter with:(Language)language;
