@@ -14,6 +14,7 @@
 		3A17064D260D11AC00A02CC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064C260D11AC00A02CC6 /* Assets.xcassets */; };
 		3A170650260D11AC00A02CC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A17064E260D11AC00A02CC6 /* LaunchScreen.storyboard */; };
 		3A170653260D11AC00A02CC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A170652260D11AC00A02CC6 /* main.m */; };
+		8B6040382632F62500282871 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6040372632F62500282871 /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		3A17064F260D11AC00A02CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A170651260D11AC00A02CC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A170652260D11AC00A02CC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8B6040362632F62500282871 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		8B6040372632F62500282871 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +70,13 @@
 				3A170644260D11A800A02CC6 /* SceneDelegate.m */,
 				3A170646260D11A800A02CC6 /* ViewController.h */,
 				3A170647260D11A800A02CC6 /* ViewController.m */,
-				3A170649260D11A800A02CC6 /* Main.storyboard */,
 				3A17064C260D11AC00A02CC6 /* Assets.xcassets */,
+				3A170649260D11A800A02CC6 /* Main.storyboard */,
 				3A17064E260D11AC00A02CC6 /* LaunchScreen.storyboard */,
 				3A170651260D11AC00A02CC6 /* Info.plist */,
 				3A170652260D11AC00A02CC6 /* main.m */,
+				8B6040362632F62500282871 /* Student.h */,
+				8B6040372632F62500282871 /* Student.m */,
 			);
 			path = ExampleObjC;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			files = (
 				3A170648260D11A800A02CC6 /* ViewController.m in Sources */,
 				3A170642260D11A800A02CC6 /* AppDelegate.m in Sources */,
+				8B6040382632F62500282871 /* Student.m in Sources */,
 				3A170653260D11AC00A02CC6 /* main.m in Sources */,
 				3A170645260D11A800A02CC6 /* SceneDelegate.m in Sources */,
 			);
@@ -293,6 +299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ34M8AX57;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = ExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,6 +318,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ34M8AX57;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = ExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
