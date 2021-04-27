@@ -16,7 +16,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSLog(@"App did finish launching with options.");
     return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    NSLog(@"App will resign active.");
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSLog(@"App did become active.");
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    NSLog(@"App did enter backgeround.");
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    NSLog(@"App will enter foreground.");
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"App will terminate.");
 }
 
 
